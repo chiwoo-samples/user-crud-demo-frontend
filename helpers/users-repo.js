@@ -19,8 +19,8 @@ function getById(id) {
     return users.find(x => x.id.toString() === id.toString());
 }
 
-function create({ title, firstName, lastName, email, role, password }) {
-    const user = { title, firstName, lastName, email, role, password };
+function create({ title, firstName, lastName, email, role, usercode }) {
+    const user = { title, firstName, lastName, email, role, usercode };
 
     // validate
     if (users.find(x => x.email === user.email))
@@ -30,29 +30,29 @@ function create({ title, firstName, lastName, email, role, password }) {
     user.id = users.length ? Math.max(...users.map(x => x.id)) + 1 : 1;
 
     // set date created and updated
-    user.dateCreated = new Date().toISOString();
-    user.dateUpdated = new Date().toISOString();
+    user.createDts = new Date().toISOString();
+    user.updateDts = new Date().toISOString();
 
     // add and save user
     users.push(user);
     saveData();
 }
 
-function update(id, { title, firstName, lastName, email, role, password }) {
-    const params = { title, firstName, lastName, email, role, password };
+function update(id, { title, firstName, lastName, email, role, usercode }) {
+    const params = { title, firstName, lastName, email, role, usercode };
     const user = users.find(x => x.id.toString() === id.toString());
 
     // validate
     if (params.email !== user.email && users.find(x => x.email === params.email))
         throw `User with the email ${params.email} already exists`;
 
-    // only update password if entered
-    if (!params.password) {
-        delete params.password;
+    // only update usercode if entered
+    if (!params.usercode) {
+        delete params.usercode;
     }
 
     // set date updated
-    user.dateUpdated = new Date().toISOString();
+    user.updateDts = new Date().toISOString();
 
     // update and save
     Object.assign(user, params);

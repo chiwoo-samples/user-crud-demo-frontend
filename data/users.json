@@ -5,10 +5,10 @@
         "lastName": "Murphy",
         "email": "frank.murphy@rustvale.com",
         "role": "User",
-        "password": "sue123",
+        "usercode": "fr1234",
         "id": 1,
-        "dateCreated": "2021-04-08T05:33:05.184Z",
-        "dateUpdated": "2021-04-08T05:33:05.184Z"
+        "createDts": "2021-04-08T05:33:05.184Z",
+        "updateDts": "2021-10-28T00:02:47.249Z"
     },
     {
         "title": "Mr",
@@ -16,9 +16,9 @@
         "lastName": "Fruit",
         "email": "melon@gmail.com",
         "role": "Admin",
-        "password": "222222",
+        "usercode": "222222",
         "id": 2,
-        "dateCreated": "2021-10-25T06:45:31.210Z",
-        "dateUpdated": "2021-10-25T07:57:34.201Z"
+        "createDts": "2021-10-25T06:45:31.210Z",
+        "updateDts": "2021-10-25T07:57:34.201Z"
     }
 ]

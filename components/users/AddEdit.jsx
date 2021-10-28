@@ -13,7 +13,7 @@ function AddEdit(props) {
     const user = props?.user;
     const isAddMode = !user;
     const router = useRouter();
-    const [showPassword, setShowPassword] = useState(false);
+    const [showusercode, setShowusercode] = useState(false);
     
     // form validation rules 
     const validationSchema = Yup.object().shape({
@@ -28,22 +28,22 @@ function AddEdit(props) {
             .required('Email is required'),
         role: Yup.string()
             .required('Role is required'),
-        password: Yup.string()
+        usercode: Yup.string()
             .transform(x => x === '' ? undefined : x)
-            .concat(isAddMode ? Yup.string().required('Password is required') : null)
-            .min(6, 'Password must be at least 6 characters'),
-        confirmPassword: Yup.string()
+            .concat(isAddMode ? Yup.string().required('usercode is required') : null)
+            .min(6, 'usercode must be at least 6 characters'),
+        confirmusercode: Yup.string()
             .transform(x => x === '' ? undefined : x)
-            .when('password', (password, schema) => {
-                if (password || isAddMode) return schema.required('Confirm Password is required');
+            .when('usercode', (usercode, schema) => {
+                if (usercode || isAddMode) return schema.required('Confirm usercode is required');
             })
-            .oneOf([Yup.ref('password')], 'Passwords must match')
+            .oneOf([Yup.ref('usercode')], 'usercodes must match')
     });
     const formOptions = { resolver: yupResolver(validationSchema) };
 
     // set default form values if in edit mode
     if (!isAddMode) {
-        const { password, confirmPassword, ...defaultValues } = user;
+        const { usercode, confirmusercode, ...defaultValues } = user;
         formOptions.defaultValues = defaultValues;
     }
 
@@ -119,28 +119,28 @@ function AddEdit(props) {
             </div>
             {!isAddMode &&
                 <div>
-                    <h3 className="pt-3">Change Password</h3>
-                    <p>Leave blank to keep the same password</p>
+                    <h3 className="pt-3">Change usercode</h3>
+                    <p>Leave blank to keep the same usercode</p>
                 </div>
             }
             <div className="form-row">
                 <div className="form-group col">
                     <label>
-                        Password
+                        usercode
                         {!isAddMode &&
-                            (!showPassword
-                                ? <span> - <a onClick={() => setShowPassword(!showPassword)} className="text-primary">Show</a></span>
-                                : <em> - {user.password}</em>
+                            (!showusercode
+                                ? <span> - <a onClick={() => setShowusercode(!showusercode)} className="text-primary">Show</a></span>
+                                : <em> - {user.usercode}</em>
                             )
                         }
                     </label>
-                    <input name="password" type="password" {...register('password')} className={`form-control ${errors.password ? 'is-invalid' : ''}`} />
-                    <div className="invalid-feedback">{errors.password?.message}</div>
+                    <input name="usercode" type="usercode" {...register('usercode')} className={`form-control ${errors.usercode ? 'is-invalid' : ''}`} />
+                    <div className="invalid-feedback">{errors.usercode?.message}</div>
                 </div>
                 <div className="form-group col">
-                    <label>Confirm Password</label>
-                    <input name="confirmPassword" type="password" {...register('confirmPassword')} className={`form-control ${errors.confirmPassword ? 'is-invalid' : ''}`} />
-                    <div className="invalid-feedback">{errors.confirmPassword?.message}</div>
+                    <label>Confirm usercode</label>
+                    <input name="confirmusercode" type="usercode" {...register('confirmusercode')} className={`form-control ${errors.confirmusercode ? 'is-invalid' : ''}`} />
+                    <div className="invalid-feedback">{errors.confirmusercode?.message}</div>
                 </div>
             </div>
             <div className="form-group">
