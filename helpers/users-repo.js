@@ -16,11 +16,13 @@ function getAll() {
 }
 
 function getById(id) {
+    console.log("usersRepo.getById(id): " + id)
     return users.find(x => x.id.toString() === id.toString());
 }
 
 function create({ title, firstName, lastName, email, role, usercode }) {
     const user = { title, firstName, lastName, email, role, usercode };
+    console.log("usersRepo.create(user): " + JSON.stringify(user))
 
     // validate
     if (users.find(x => x.email === user.email))
@@ -61,6 +63,7 @@ function update(id, { title, firstName, lastName, email, role, usercode }) {
 
 // prefixed with underscore '_' because 'delete' is a reserved word in javascript
 function _delete(id) {
+    console.log("usersRepo._delete(id): " + id)
     // filter out deleted user and save
     users = users.filter(x => x.id.toString() !== id.toString());
     saveData();

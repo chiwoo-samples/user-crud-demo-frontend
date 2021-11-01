@@ -48,8 +48,6 @@ class BenchmarkTable extends Component {
     }
 }
 
-
-
 const Index = () => {
     return (
         <div>

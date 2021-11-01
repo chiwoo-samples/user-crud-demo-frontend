@@ -22,14 +22,15 @@ export const userService = {
 const baseUrl = `${apiUrl}/users`;
 
 function getAll() {
+    console.log("user.service::userService.getAll(): " + baseUrl)
     const requestOptions = {
         method: 'GET'
     };
-    console.log("getAll(): " + baseUrl)
     return fetch(baseUrl, requestOptions).then(handleResponse);
 }
 
 function getById(id) {
+    console.log("user.service::userService.getById(id): " + '${baseUrl}/${id}')
     const requestOptions = {
         method: 'GET'
     };
@@ -37,6 +38,8 @@ function getById(id) {
 }
 
 function create(params) {
+    console.log("user.service::userService.create(params): " + '${baseUrl}')
+    console.log("user.service::userService.create(params): " + JSON.stringify(params))
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -56,6 +59,7 @@ function update(id, params) {
 
 // prefixed with underscored because delete is a reserved word in javascript
 function _delete(id) {
+    console.log("userService.__delete(id): " + id)
     const requestOptions = {
         method: 'DELETE'
     };

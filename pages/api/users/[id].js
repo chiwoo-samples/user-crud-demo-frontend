@@ -3,6 +3,7 @@ import { usersRepo } from 'helpers';
 export default handler;
 
 function handler(req, res) {
+    console.log("users::id-usersRepo.handler(req, res)")
     switch (req.method) {
         case 'GET':
             return getUserById();

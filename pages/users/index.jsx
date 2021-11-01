@@ -6,7 +6,9 @@ import { userService } from 'services';
 export default Index;
 
 function Index() {
+    console.log("users.index.jsx")
     const [users, setUsers] = useState(null);
+    console.log("users: " + users)
 
     useEffect(() => {
         userService.getAll().then(users => setUsers(users));

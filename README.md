@@ -21,6 +21,12 @@ npm run build
 npm run dev
 ```
 
+## run on production
+```
+npm run build
+npm run start
+```
+
 ## project layout
 ```
 .
@@ -56,3 +62,15 @@ npm run dev
 
 ## Components version
 - node: v16.12.0
+
+
+## References
+
+### Next.js 10 - CRUD Example with React Hook Form
+-[Next.js 10 - CRUD Example](https://jasonwatmore.com/post/2021/04/20/next-js-10-crud-example-with-react-hook-form)
+-[Next.js 10 - CRUD Github](https://github.com/cornflourblue/next-js-10-crud-example)
+
+### Next.js 11 - User Registration and Login
+- [Next.js 11 - User Registration and Login Example](https://jasonwatmore.com/post/2021/08/19/next-js-11-user-registration-and-login-tutorial-with-example-app)
+- [Next.js 11 - User Registration and Login Github](https://github.com/cornflourblue/next-js-11-registration-login-example)
+

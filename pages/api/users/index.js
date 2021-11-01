@@ -9,7 +9,7 @@ export default handler;
  * @returns {*}
  */
 function handler(req, res) {
-    console.log("Request / Response 를 처리하는 핸들러")
+    console.log("users::index-usersRepo.handler(req, res)")
     switch (req.method) {
         case 'GET':
             return getUsers();
